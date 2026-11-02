@@ -1,7 +1,7 @@
 # Śnieżka SkiPass – system rezerwacji i zakupu karnetów narciarskich
 
 ## 1. Zespół
-* **Nazwa zespołu:** [Zespół Śnieżka]
+* **Nazwa zespołu:** Zespół Śnieżka
 * **Skład zespołu:**
   * Michał Minda – nr indeksu: 175641, GitHub: @mmminda
   * Radomił Pakuła – nr indeksu: [xxxxxx], GitHub: @[login_github]
@@ -45,8 +45,8 @@ Poniższe elementy z szerokiej koncepcji biznesowej zostają celowo wyłączone 
 
 ## 6. Organizacja współpracy
 * **Wstępny podział zadań:**
-  * **[Michał]:** Konfiguracja repozytorium GitHub, opracowanie opisu idei projektu, scenariusza użycia oraz przygotowanie struktury bazy danych w kolejnych etapach.
-  * **[Radomił]:** Konfiguracja przestrzeni w LaboChat.com, spisanie zakresu funkcjonalnego (MVP i rozszerzeń) oraz przygotowanie szkiców widoków interfejsu.
+  * **Michał:** Konfiguracja repozytorium GitHub, opracowanie opisu idei projektu, scenariusza użycia oraz przygotowanie struktury bazy danych w kolejnych etapach.
+  * **Radomił:** Konfiguracja przestrzeni w LaboChat.com, spisanie zakresu funkcjonalnego (MVP i rozszerzeń) oraz przygotowanie szkiców widoków interfejsu.
 * **Sposób kontaktu:** Bieżąca komunikacja przez komunikator (Discord / Messenger) oraz wpisy w przestrzeni projektu na LaboChat.com.
 * **Zasada zapisywania ustaleń:** Wszystkie wiążące decyzje projektowe oraz postępy w zadaniach są odnotowywane na tablicy w LaboChat.com, a dokumentacja techniczna jest na bieżąco aktualizowana bezpośrednio w repozytorium GitHub.
 
