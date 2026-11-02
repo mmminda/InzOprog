@@ -4,7 +4,7 @@
 * **Nazwa zespołu:** Zespół Śnieżka
 * **Skład zespołu:**
   * Michał Minda – nr indeksu: 175641, GitHub: @mmminda
-  * Radomił Pakuła – nr indeksu: [xxxxxx], GitHub: @[login_github]
+  * Radomił Pakuła – nr indeksu: [xxxxxx], GitHub: @pakular
 * **Grupa laboratoryjna:** Grupa nr. 1
 
 ---
@@ -54,4 +54,4 @@ Poniższe elementy z szerokiej koncepcji biznesowej zostają celowo wyłączone 
 
 ## 7. Odnośniki
 * **Repozytorium GitHub:** https://github.com/mmminda/InzOprog
-* **Przestrzeń projektu w LaboChat.com:** [xxx]
+* **Przestrzeń projektu w LaboChat.com:** https://pakmin.labochat.com/
