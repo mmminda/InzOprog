@@ -4,7 +4,7 @@
 * **Nazwa zespołu:** Zespół Śnieżka
 * **Skład zespołu:**
   * Michał Minda – nr indeksu: 175641, GitHub: @mmminda
-  * Radomił Pakuła – nr indeksu: [xxxxxx], GitHub: @pakular
+  * Radomił Pakuła – nr indeksu: 169474, GitHub: @pakular
 * **Grupa laboratoryjna:** Grupa nr. 1
 
 ---
