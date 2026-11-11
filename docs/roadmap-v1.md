@@ -162,7 +162,7 @@ erDiagram
 * **Sytuacja błędna / ograniczenie:** Jeśli w bazie nie ma jeszcze żadnych pozycji oferty, zamiast tabeli wyświetla się czytelny komunikat informacyjny, a przycisk zakupu jest nieaktywny.
 
 ### F02: Rezerwacja / zakup wybranego karnetu na wskazany dzień
-* **Użytkownik:** Klient (działający jako lokalny użytkownik demo nr 1)
+* **Użytkownik:** Klient (działający jako lokalny użytkownik demonstracyjny nr 1)
 * **Powiązany widok:** W02 (Zakup karnetu) -> przekierowanie do W03 (Moje karnety)
 * **Potrzebne dane:** Tabele `uzytkownik`, `oferta`, `karnet`
 * **Oczekiwane działanie:** Użytkownik w widoku W02 wybiera z listy rodzaj karnetu oraz datę pobytu i wysyła formularz. Serwer waliduje dane, generuje unikalny ciąg znaków `kod_qr`, zapisuje nowy rekord w tabeli `karnet` ze statusem `'Aktywny'` i wyświetla go na liście w widoku W03.
@@ -170,7 +170,7 @@ erDiagram
 * **Sytuacja błędna / ograniczenie:** W przypadku pozostawienia pustego pola, podania daty wstecznej lub duplikatu aktywnej rezerwacji na ten sam dzień, system odrzuca zapis i wyświetla komunikat błędu w widoku W02.
 
 ### F03: Przeglądanie zakupionych karnetów i anulowanie wybranego karnetu
-* **Użytkownik:** Klient (użytkownik demo nr 1)
+* **Użytkownik:** Klient (użytkownik demonstracyjny nr 1)
 * **Powiązany widok:** W03 (Moje karnety)
 * **Potrzebne dane:** Tabele `uzytkownik`, `oferta`, `karnet`
 * **Oczekiwane działanie:** Użytkownik w widoku W03 widzi wszystkie swoje karnety. Kliknięcie przycisku `Anuluj karnet` przy aktywnej pozycji zmienia w bazie danych jej pole `status` z `'Aktywny'` na `'Anulowany'`. Anulowany karnet nie blokuje już ponownej rezerwacji na ten sam termin.
@@ -206,5 +206,3 @@ W kolejnej iteracji (v2) planujemy rozszerzyć system o dwa nowe obszary, przech
 * **Zmiany w widokach:** W widoku **W02** pojawi się dodatkowy checkbox/lista wyboru sprzętu do wypożyczenia, a w **W03** informacja o zarezerwowanym sprzęcie.
 * **Zmiany w danych:** Dodanie nowej tabeli `sprzet` (`id`, `nazwa`, `cena_doba`, `dostepny`) oraz powiązanie jej z tabelą `karnet` kluczem obcym `sprzet_id`.
 * **Zmiany w funkcjonalnościach:** Wdrożenie funkcji **F04** (rezerwacja usługi dodatkowej wraz z weryfikacją dostępności sprzętu).
-
-* **Road Map projektu (v1):** [docs/roadmap-v1.md](docs/roadmap-v1.md)
