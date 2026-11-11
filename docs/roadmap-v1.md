@@ -183,11 +183,11 @@ erDiagram
 
 | Etap v1 | Osoba odpowiedzialna | Termin | Od czego zależy? | Oczekiwany rezultat |
 | :--- | :--- | :--- | :--- | :--- |
-| **1. Cel i zakres v1** | [Imię Osoby 1] i [Imię Osoby 2] | Lab 02 | Koncepcja z Lab 01 | Zdefiniowany cel v1 i wybrane 3 funkcje MVP (F01–F03). |
-| **2. Projekt widoków (W01–W03)** | [Imię Osoby 2] | Lab 02 | Cel i zakres v1 | Opisy i szkice 3 widoków oraz zaprojektowana nawigacja. |
-| **3. Struktura bazy danych** | [Imię Osoby 1] | Lab 02 | Dane potrzebne w widokach | Zdefiniowane 3 tabele (`uzytkownik`, `oferta`, `karnet`), klucze PK/FK i diagram ERD. |
-| **4. Specyfikacja funkcjonalności** | [Imię Osoby 2] | Lab 02 | Widoki i struktura bazy | Szczegółowy opis działania F01, F02, F03 oraz warunków walidacji. |
-| **5. Sprawdzenie spójności mapy** | [Imię Osoby 1] | Lab 02 | Etapy 1–4 | Kompletny dokument `docs/roadmap-v1.md` w repozytorium GitHub. |
+| **1. Cel i zakres v1** | Michał i Radomił | Lab 02 | Koncepcja z Lab 01 | Zdefiniowany cel v1 i wybrane 3 funkcje MVP (F01–F03). |
+| **2. Projekt widoków (W01–W03)** | Radomił | Lab 02 | Cel i zakres v1 | Opisy i szkice 3 widoków oraz zaprojektowana nawigacja. |
+| **3. Struktura bazy danych** | Michał | Lab 02 | Dane potrzebne w widokach | Zdefiniowane 3 tabele (`uzytkownik`, `oferta`, `karnet`), klucze PK/FK i diagram ERD. |
+| **4. Specyfikacja funkcjonalności** | Radomił | Lab 02 | Widoki i struktura bazy | Szczegółowy opis działania F01, F02, F03 oraz warunków walidacji. |
+| **5. Sprawdzenie spójności mapy** | Michał | Lab 02 | Etapy 1–4 | Kompletny dokument `docs/roadmap-v1.md` w repozytorium GitHub. |
 
 ---
 
