@@ -1,9 +1,9 @@
 # Śnieżka SkiPass – system rezerwacji i zakupu karnetów narciarskich
 
 ## 1. Zespół
-* **Nazwa zespołu:** Zespół śnieżka
+* **Nazwa zespołu:** Zespół Śnieżka
 * **Skład zespołu:**
-  * Michał Minda – nr indeksu: 175641, GitHub: @mmminda
+  * Michał Minda – nr indeksu: [123456], GitHub: @mmminda
   * Radomił Pakuła – nr indeksu: 169474, GitHub: @pakular
 * **Grupa laboratoryjna:** Grupa nr. 1
 
@@ -51,3 +51,34 @@ py -3 -m venv .venv
 .\.venv\Scripts\python.exe -m pip install -r requirements.txt
 .\.venv\Scripts\python.exe -m flask --app app init-db
 .\.venv\Scripts\python.exe -m flask --app app run
+```
+
+### macOS / Linux:
+```bash
+python3 -m venv .venv
+.venv/bin/python -m pip install -r requirements.txt
+.venv/bin/python -m flask --app app init-db
+.venv/bin/python -m flask --app app run
+```
+
+Po uruchomieniu serwera otwórz w przeglądarce adres: **`http://127.0.0.1:5000`**.  
+Zatrzymanie serwera następuje po wciśnięciu skrótu `Ctrl+C` w terminalu. Dane zapisywane są trwale w lokalnym pliku bazy `sniezka.db`.
+
+---
+
+## 7. Organizacja współpracy
+* **Podział zadań:**
+  * **Michał:** Konfiguracja repozytorium GitHub, projekt struktury bazy danych SQLite, implementacja backendu (`app.py`) i widoków (`templates/layout.html`).
+  * **Radomił:** Konfiguracja przestrzeni w LaboChat.com, opracowanie Road Map v1, dokumentacja technologii (`docs/technologie.md`), promptów (`docs/prompty-v1.md`) oraz wykonanie testów akceptacyjnych (`docs/testy-v1.md`).
+* **Sposób kontaktu:** Bieżąca komunikacja przez komunikator oraz wpisy w przestrzeni projektu na LaboChat.com.
+* **Zasada zapisywania ustaleń:** Decyzje projektowe i postępy są odnotowywane w LaboChat.com, a kod oraz dokumentacja są aktualizowane w repozytorium GitHub.
+
+---
+
+## 8. Odnośniki do dokumentacji
+* **Repozytorium GitHub:** https://github.com/mmminda/InzOprog
+* **Przestrzeń projektu w LaboChat.com:** https://pakmin.labochat.com/
+* **Road Map projektu (v1):** [docs/roadmap-v1.md](docs/roadmap-v1.md)
+* **Opis wybranych technologii:** [docs/technologie.md](docs/technologie.md)
+* **Katalog promptów i decyzji AI:** [docs/prompty-v1.md](docs/prompty-v1.md)
+* **Raport z testów wersji v1:** [docs/testy-v1.md](docs/testy-v1.md)
