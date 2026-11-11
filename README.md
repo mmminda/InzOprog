@@ -1,7 +1,7 @@
 # Śnieżka SkiPass – system rezerwacji i zakupu karnetów narciarskich
 
 ## 1. Zespół
-* **Nazwa zespołu:** Zespół Śnieżka
+* **Nazwa zespołu:** Zespół śnieżka
 * **Skład zespołu:**
   * Michał Minda – nr indeksu: 175641, GitHub: @mmminda
   * Radomił Pakuła – nr indeksu: 169474, GitHub: @pakular
@@ -16,42 +16,38 @@ Sieć stacji narciarskich „Śnieżka” zmaga się z problemem długich koleje
 
 ## 3. Użytkownicy i scenariusz użycia
 * **Główna grupa odbiorców:** Klienci indywidualni oraz grupy turystów planujące pobyt na stacji narciarskiej „Śnieżka”.
+* **Tryb demonstracyjny (v1):** Aplikacja w wersji v1 działa w kontekście lokalnego użytkownika demonstracyjnego nr 1 (`Jan Nowak`, `jan.nowak@example.com`), który jest automatycznie tworzony podczas inicjalizacji bazy danych.
 * **Scenariusz użycia:** 
-  Klient wchodzi na stronę główną aplikacji i przegląda aktualny cennik dostępnych karnetów (np. Normalny, Ulgowy, Dziecięcy). Następnie przechodzi do formularza zakupu, wybiera interesujący go rodzaj karnetu, wskazuje datę ważności i zatwierdza rezerwację. System automatycznie wylicza kwotę do zapłaty, zapisuje zamówienie w bazie danych i generuje unikalny kod karnetu. Na koniec klient przechodzi do widoku „Moje karnety”, gdzie widzi swój aktywny karnet gotowy do okazania na stacji (lub może go anulować w razie zmiany planów).
+  Klient wchodzi na stronę główną aplikacji (W01) i przegląda aktualny cennik dostępnych karnetów (Normalny, Ulgowy, Dziecięcy). Następnie przechodzi do formularza zakupu (W02), wybiera interesujący go rodzaj karnetu, wskazuje datę ważności i zatwierdza rezerwację. System waliduje poprawność daty oraz brak kolizji, zapisuje zamówienie w bazie SQLite i generuje unikalny kod QR karnetu. Na koniec klient przechodzi do widoku „Moje karnety” (W03), gdzie widzi swój aktywny karnet lub może go anulować.
 
 ---
 
 ## 4. Zakres funkcjonalny
 
-Zgodnie z założeniami dla pierwszej wersji (v1), w ramach MVP realizujemy 3 kluczowe i spójne funkcjonalności pozwalające na pełny obieg zamówienia.
-
 | ID | Funkcjonalność | Zakres |
 | :--- | :--- | :--- |
-| **F01** | Użytkownik może przeglądać listę dostępnych karnetów wraz z ich aktualną ceną. | **MVP** |
-| **F02** | Użytkownik może zarezerwować/kupić wybrany karnet na wskazany dzień (wygenerowanie karnetu ze statusem „Aktywny”). | **MVP** |
-| **F03** | Użytkownik może przeglądać swoje zakupione karnety oraz anulować wybrany aktywny karnet. | **MVP** |
+| **F01** | Użytkownik może przeglądać listę dostępnych karnetów wraz z ich aktualną ceną. | **MVP (Zrealizowane w v1)** |
+| **F02** | Użytkownik może zarezerwować/kupić wybrany karnet na wskazany dzień (wygenerowanie karnetu ze statusem „Aktywny”). | **MVP (Zrealizowane w v1)** |
+| **F03** | Użytkownik może przeglądać swoje zakupione karnety oraz anulować wybrany aktywny karnet. | **MVP (Zrealizowane w v1)** |
 | **F04** | Użytkownik może zarezerwować usługę dodatkową (wypożyczenie sprzętu lub lekcję z instruktorem). | Rozszerzenie (v2) |
 | **F05** | Administrator może dodawać nowe pozycje do oferty i edytować ceny karnetów. | Rozszerzenie (v2) |
 
 ---
 
 ## 5. Poza zakresem (Out of Scope dla wersji v1)
-Poniższe elementy z szerokiej koncepcji biznesowej zostają celowo wyłączone z pierwszej wersji aplikacji:
-* **Integracja sprzętowa z fizycznymi bramkami RFID na stoku** – system wygeneruje jedynie cyfrowy kod karnetu w bazie danych, bez komunikacji ze sterownikami bramek.
-* **Zewnętrzni operatorzy płatności (BLIK / terminale płatnicze) i drukarki fiskalne** – zakup w wersji v1 będzie opierał się na symulowanym zatwierdzeniu zamówienia w systemie.
+* **Integracja sprzętowa z fizycznymi bramkami RFID na stoku** – system generuje cyfrowy kod karnetu w bazie danych, bez komunikacji ze sterownikami bramek.
+* **Zewnętrzni operatorzy płatności (BLIK / terminale płatnicze) i drukarki fiskalne** – zakup w wersji v1 opiera się na lokalnym zatwierdzeniu zamówienia w systemie.
 * **Generowanie raportów podatkowych (JPK) dla Urzędu Skarbowego oraz system zgłoszeń GOPR.**
 
 ---
 
-## 6. Organizacja współpracy
-* **Wstępny podział zadań:**
-  * **Michał:** Konfiguracja repozytorium GitHub, opracowanie opisu idei projektu, scenariusza użycia oraz przygotowanie struktury bazy danych w kolejnych etapach.
-  * **Radomił:** Konfiguracja przestrzeni w LaboChat.com, spisanie zakresu funkcjonalnego (MVP i rozszerzeń) oraz przygotowanie szkiców widoków interfejsu.
-* **Sposób kontaktu:** Bieżąca komunikacja przez komunikator (Discord / Messenger) oraz wpisy w przestrzeni projektu na LaboChat.com.
-* **Zasada zapisywania ustaleń:** Wszystkie wiążące decyzje projektowe oraz postępy w zadaniach są odnotowywane na tablicy w LaboChat.com, a dokumentacja techniczna jest na bieżąco aktualizowana bezpośrednio w repozytorium GitHub.
+## 6. Instrukcja uruchomienia lokalnego i inicjalizacji bazy (v1)
 
----
+Wymagany zainstalowany **Python 3** (zalecana wersja 3.10+). Otwórz terminal w głównym katalogu projektu i wykonaj polecenia odpowiednie dla swojego systemu operacyjnego:
 
-## 7. Odnośniki
-* **Repozytorium GitHub:** https://github.com/mmminda/InzOprog
-* **Przestrzeń projektu w LaboChat.com:** https://pakmin.labochat.com/
+### Windows (PowerShell):
+```powershell
+py -3 -m venv .venv
+.\.venv\Scripts\python.exe -m pip install -r requirements.txt
+.\.venv\Scripts\python.exe -m flask --app app init-db
+.\.venv\Scripts\python.exe -m flask --app app run
