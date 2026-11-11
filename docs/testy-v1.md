@@ -1,0 +1,15 @@
+# Raport z testów akceptacyjnych – Śnieżka SkiPass (v1)
+
+Testy wykonano lokalnie w przeglądarce po uruchomieniu serwera Flask (`http://127.0.0.1:5000`) na bazie SQLite (`sniezka.db`) dla użytkownika demonstracyjnego nr 1 (`Jan Nowak`).
+
+## Scenariusze sprawdzenia wersji v1
+
+| ID | Scenariusz testowy i dane wejściowe | Kroki wykonania | Oczekiwany wynik | Rzeczywisty wynik | Status |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| **T01** | **Sprawdzenie oferty (F01)**<br>Dane startowe z bazy `oferta` | 1. Uruchom serwer.<br>2. Wejdź na stronę główną `/` (W01). | Wyświetla się lista 3 karnetów (Dorosły 79 zł, Student 59 zł, Dziecko 39 zł) wraz z przyciskami zakupu. | Lista 3 karnetów wyświetla się poprawnie z cenami i opisami. | **Działa** |
+| **T02** | **Zakup karnetu na wolny termin (F02)**<br>Oferta: `Karnet Dorosły`, Data: `2026-12-20` | 1. Otwórz `/kup` (W02).<br>2. Wybierz „Karnet Dorosły” i datę `2026-12-20`.<br>3. Kliknij „Zarezerwuj”. | Przekierowanie do W03, zielony komunikat z kodem QR, nowy rekord na liście ze statusem `Aktywny`. | Rekord zapisany w bazie, widoczny w W03 ze statusem `Aktywny` i wygenerowanym kodem QR. | **Działa** |
+| **T03** | **Blokada duplikatu aktywnego karnetu (F02 – kolizja)**<br>Oferta: `Karnet Dorosły`, Data: `2026-12-20` | 1. Otwórz `/kup` (W02).<br>2. Ponownie wybierz „Karnet Dorosły” i tę samą datę `2026-12-20`.<br>3. Wyślij formularz. | Odrzucenie zapisu, czerwony komunikat o kolizji aktywnego karnetu na ten sam dzień. | System zablokował duplikat i wyświetlił komunikat błędu w W02. | **Działa** |
+| **T04** | **Zakup tego samego karnetu na inny dzień (F02)**<br>Oferta: `Karnet Dorosły`, Data: `2026-12-21` | 1. W W02 wybierz „Karnet Dorosły” i kolejną datę `2026-12-21`.<br>2. Zatwierdź formularz. | Poprawne utworzenie drugiego karnetu na inny termin. | Karnet został poprawnie dodany do listy w W03. | **Działa** |
+| **T05** | **Walidacja daty z przeszłości / pustych pól (F02 – błąd)**<br>Oferta: `Karnet Student`, Data: `2020-01-01` | 1. W W02 wybierz karnet i wpisz datę wsteczną `2020-01-01`.<br>2. Zatwierdź formularz. | Komunikat błędu „Data ważności karnetu nie może być z przeszłości” i brak zapisu w bazie. | Wyświetlono czerwony komunikat błędu, brak niepoprawnego rekordu w bazie. | **Działa** |
+| **T06** | **Anulowanie własnego karnetu i zwolnienie terminu (F03)**<br>Karnet z testu T02 (`2026-12-20`) | 1. W W03 kliknij „Anuluj karnet” przy karnecie z dnia `2026-12-20`.<br>2. Ponownie kup ten sam karnet na `2026-12-20` w W02. | Status zmienia się na `Anulowany`, przycisk znika, a termin `2026-12-20` można ponownie zarezerwować. | Status zmieniony na `Anulowany`, ponowna rezerwacja na ten sam dzień przebiegła pomyślnie. | **Działa** |
+| **T07** | **Trwałość danych po restarcie serwera (SQLite)**<br>Zapisane karnety w `sniezka.db` | 1. Zatrzymaj serwer skrótem `Ctrl+C`.<br>2. Uruchom serwer ponownie.<br>3. Odśwież widok W03. | Wszystkie wcześniej utworzone i anulowane karnety są nadal widoczne. | Dane zostały zachowane w pliku `sniezka.db` bez żadnych strat. | **Działa** |
